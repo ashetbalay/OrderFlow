@@ -1,9 +1,8 @@
 from fastapi import APIRouter
 
+from app.api.v1.health import router as health_router
+
 
 router = APIRouter()
 
-
-@router.get('/')
-def read_root():
-    return {"message": "OrderFlow is running"}
+router.include_router(health_router)
